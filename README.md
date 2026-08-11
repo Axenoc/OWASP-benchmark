@@ -7,6 +7,27 @@ The project documentation is all on the OWASP site at the <a href="https://owasp
 
 The current latest release is v1.2. Note that all the releases that are available here: https://github.com/OWASP-Benchmark/BenchmarkJava/releases, are historical. The latest release is always available live by simply cloning or pulling the head of this repository (i.e., git pull).
 
+## Added CWE Test Cases
+
+Each CWE below has one vulnerable test case and one safe test case.
+
+| CWE | Vulnerable / Positive | Safe / Negative |
+| --- | --- | --- |
+| CWE-644 | BenchmarkTest02741 | BenchmarkTest02742 |
+| CWE-598 | BenchmarkTest02743 | BenchmarkTest02744 |
+| CWE-204 | BenchmarkTest02745 | BenchmarkTest02746 |
+| CWE-209 | BenchmarkTest02747 | BenchmarkTest02748 |
+| CWE-210 | BenchmarkTest02749 | BenchmarkTest02750 |
+| CWE-211 | BenchmarkTest02751 | BenchmarkTest02752 |
+| CWE-535 | BenchmarkTest02753 | BenchmarkTest02754 |
+| CWE-536 | BenchmarkTest02755 | BenchmarkTest02756 |
+| CWE-537 | BenchmarkTest02757 | BenchmarkTest02758 |
+| CWE-497 | BenchmarkTest02759 | BenchmarkTest02760 |
+| CWE-548 | BenchmarkTest02761 | BenchmarkTest02762 |
+| CWE-538 | BenchmarkTest02763 | BenchmarkTest02764 |
+| CWE-615 | BenchmarkTest02765 | BenchmarkTest02766 |
+| CWE-651 | BenchmarkTest02767 | BenchmarkTest02768 |
+
 Running Benchmark Itself:
 * runBenchmark.sh - run the Benchmark Web Application (accessible via local machine only)
 * runRemoteAccessibleBenchmark.sh - like the above but allows port 8443 to be accessible outside the machine Benchmark is running on.
