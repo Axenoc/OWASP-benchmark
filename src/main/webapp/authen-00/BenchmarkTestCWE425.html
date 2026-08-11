@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<script src="/benchmark/js/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="/benchmark/js/js.cookie.js"></script>
+<script src="/benchmark/js/testsuiteutils.js" type="text/javascript"></script>
+<link rel="icon" type="image/png" href="/benchmark/favicon.ico">
+<title>BenchmarkTestCWE425 - Restricted Admin Panel</title>
+</head>
+<body>
+    <h2>RESTRICTED AREA: Administrative Control Panel</h2>
+
+    <p>Warning: This panel is intended for System Administrators only.</p>
+
+    <form action="/benchmark/auth-00/BenchmarkTestCWE425" method="POST" id="FormBenchmarkTestCWE425" autocomplete="off">
+        <div>
+            <label>Click below to perform administrative system reset:</label>
+        </div>
+        <br>
+        <div>
+            <input type="button" id="admin-btn" value="Execute System Reset" method="submitParameterNamesForm" testcase="BenchmarkTestCWE425">
+        </div>
+    </form>
+
+    <div id="ajax-form-msg1">
+        <pre>
+            <code class="prettyprint" id="code"></code>
+        </pre>
+    </div>
+</body>
+</html>

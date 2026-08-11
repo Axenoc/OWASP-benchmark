@@ -2739,3 +2739,12 @@ BenchmarkTest02737,sqli,false,89
 BenchmarkTest02738,sqli,false,89
 BenchmarkTest02739,sqli,false,89
 BenchmarkTest02740,sqli,false,89
+BenchmarkTestCWE1287,inputval,true,1287
+BenchmarkTestCWE1286,inputval,true,1286
+BenchmarkTestCWE1285,inputval,true,1285
+BenchmarkTestCWE1284,inputval,true,1284
+BenchmarkTestCWE41,authen,true,41
+BenchmarkTestCWE291,authen,true,291
+BenchmarkTestCWE306,authen,true,306
+BenchmarkTestCWE425,authen,true,425
+BenchmarkTestCWE645,authen,true,625
