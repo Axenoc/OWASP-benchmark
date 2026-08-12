@@ -6,7 +6,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-//Có thể dùng cho CWE-606 luôn
+
+// Có thể dùng cho CWE-606 luôn
 @WebServlet(value = "/inputval-00/BechmarkTestCWE1284")
 public class BenchmartTestCWE1284 extends HttpServlet {
     @Override

@@ -14,16 +14,15 @@ public class BenchmarkTestCWE41 extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     @Override
-    public void doPost(HttpServletRequest request, HttpServletResponse response) 
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
         String fileName = request.getParameter("BenchmarkTestCWE41");
-        
+
         if (fileName == null || fileName.isEmpty()) {
             fileName = "welcome.txt";
         }
-
 
         if (fileName.contains("..") || fileName.equalsIgnoreCase("secret.txt")) {
             response.setStatus(HttpServletResponse.SC_FORBIDDEN); // 403

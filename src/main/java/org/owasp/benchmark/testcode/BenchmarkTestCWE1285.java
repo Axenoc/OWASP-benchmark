@@ -6,7 +6,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-//Có thể dùng cho 129
+
+// Có thể dùng cho 129
 @WebServlet("/benchmark/inputval-00/BenchmarkTestCWE1285")
 public class BenchmarkTestCWE1285 extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -30,7 +31,6 @@ public class BenchmarkTestCWE1285 extends HttpServlet {
         } catch (NumberFormatException e) {
             resp.setStatus(HttpServletResponse.SC_NOT_ACCEPTABLE);
             resp.getWriter().println("Error: " + e.toString());
-            
         }
         StringBuilder output = new StringBuilder();
         try {

@@ -125,9 +125,12 @@
                             <container>
                                 <timeout>300000</timeout>
                                 <containerId>tomcat${tomcat.major.version}x</containerId>
-                                <zipUrlInstaller>
-                                    <url>${tomcat.url}</url>
-                                </zipUrlInstaller>
+                                <artifactInstaller>
+                                    <groupId>org.apache.tomcat</groupId>
+                                    <artifactId>tomcat</artifactId>
+                                    <version>${version.tomcat}</version>
+                                    <type>zip</type>
+                                </artifactInstaller>
                                 <output>${log.directory}/cargo-output.log</output>
                                 <append>false</append>
                                 <log>${log.directory}/cargo.log</log>
@@ -231,9 +234,12 @@
                             <container>
                                 <timeout>300000</timeout>
                                 <containerId>tomcat${tomcat.major.version}x</containerId>
-                                <zipUrlInstaller>
-                                    <url>${tomcat.url}</url>
-                                </zipUrlInstaller>
+                                <artifactInstaller>
+                                    <groupId>org.apache.tomcat</groupId>
+                                    <artifactId>tomcat</artifactId>
+                                    <version>${version.tomcat}</version>
+                                    <type>zip</type>
+                                </artifactInstaller>
                                 <output>${log.directory}/cargo-output.log</output>
                                 <append>false</append>
                                 <log>${log.directory}/cargo.log</log>
@@ -344,9 +350,12 @@
                             <container>
                                 <timeout>300000</timeout>
                                 <containerId>tomcat${tomcat.major.version}x</containerId>
-                                <zipUrlInstaller>
-                                    <url>${tomcat.url}</url>
-                                </zipUrlInstaller>
+                                <artifactInstaller>
+                                    <groupId>org.apache.tomcat</groupId>
+                                    <artifactId>tomcat</artifactId>
+                                    <version>${version.tomcat}</version>
+                                    <type>zip</type>
+                                </artifactInstaller>
                                 <output>${log.directory}/cargo-output.log</output>
                                 <append>false</append>
                                 <log>${log.directory}/cargo.log</log>
@@ -450,9 +459,12 @@
                             <container>
                                 <timeout>300000</timeout>
                                 <containerId>tomcat${tomcat.major.version}x</containerId>
-                                <zipUrlInstaller>
-                                    <url>${tomcat.url}</url>
-                                </zipUrlInstaller>
+                                <artifactInstaller>
+                                    <groupId>org.apache.tomcat</groupId>
+                                    <artifactId>tomcat</artifactId>
+                                    <version>${version.tomcat}</version>
+                                    <type>zip</type>
+                                </artifactInstaller>
                                 <output>${log.directory}/cargo-output.log</output>
                                 <append>false</append>
                                 <log>${log.directory}/cargo.log</log>
@@ -557,9 +569,12 @@
                             <container>
                                 <timeout>400000</timeout>
                                 <containerId>tomcat${tomcat.major.version}x</containerId>
-                                <zipUrlInstaller>
-                                    <url>${tomcat.url}</url>
-                                </zipUrlInstaller>
+                                <artifactInstaller>
+                                    <groupId>org.apache.tomcat</groupId>
+                                    <artifactId>tomcat</artifactId>
+                                    <version>${version.tomcat}</version>
+                                    <type>zip</type>
+                                </artifactInstaller>
                                 <output>${log.directory}/cargo-output.log</output>
                                 <append>false</append>
                                 <log>${log.directory}/cargo.log</log>
@@ -669,7 +684,7 @@
         <dependency>
             <groupId>org.apache.directory.api</groupId>
             <artifactId>api-ldap-model</artifactId>
-            <version>2.1.8</version>
+            <version>${version.apache.api-ldap}</version>
         </dependency>
 
         <dependency>
@@ -1255,7 +1270,7 @@
         </tomcat.jvmargs.debug>
         <log.directory>${project.build.directory}/log</log.directory>
 
-        <version.apache.api-ldap>2.1.8</version.apache.api-ldap>
+        <version.apache.api-ldap>2.1.5</version.apache.api-ldap>
         <version.apacheds>2.0.0.AM27</version.apacheds>
         <version.fluido>2.1.0</version.fluido>
         <!-- hibernate is up to rev 6+. But 4.0.0. causes this error: symbol: org.hibernate.classic.Session not found -->
@@ -1266,8 +1281,7 @@
         <version.springframework>5.3.39</version.springframework>
         <!-- Tomcat 10 moves from Java EE to Jakarta EE, moving packages javax.* to jakarta.* - code changes likely required to address this change. -->
         <tomcat.major.version>9</tomcat.major.version>
-        <version.tomcat>9.0.115</version.tomcat>
-        <tomcat.url>https://archive.apache.org/dist/tomcat/tomcat-${tomcat.major.version}/v${version.tomcat}/bin/apache-tomcat-${version.tomcat}.zip</tomcat.url>
+        <version.tomcat>9.0.120</version.tomcat>
     </properties>
 
 </project>

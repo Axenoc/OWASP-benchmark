@@ -44,7 +44,7 @@ public class BenchmarkTestCWE645 extends HttpServlet {
         }
 
         if ("admin".equals(username) && "CorrectPassword123!".equals(password)) {
-            failedAttempts.remove(username); 
+            failedAttempts.remove(username);
             response.setStatus(HttpServletResponse.SC_OK);
             response.getWriter().println("<h3>Login Successful</h3>");
         } else {
