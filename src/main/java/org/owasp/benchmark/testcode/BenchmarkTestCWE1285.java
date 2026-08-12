@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 // Có thể dùng cho 129
-@WebServlet("/benchmark/inputval-00/BenchmarkTestCWE1285")
+@WebServlet(value = "/cwe-1285/BenchmarkTestCWE1285")
 public class BenchmarkTestCWE1285 extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private static final String[] USER_ROLES = {"GUEST", "USER", "MODERATOR", "ADMIN"};
@@ -22,7 +22,7 @@ public class BenchmarkTestCWE1285 extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         resp.setContentType("text/html;charset=UTF-8");
-        String indexStr = req.getParameter("BechmarkTestCWE1285");
+        String indexStr = req.getParameter("BenchmarkTestCWE1285");
         int index = 0;
         try {
             if (indexStr != null) {

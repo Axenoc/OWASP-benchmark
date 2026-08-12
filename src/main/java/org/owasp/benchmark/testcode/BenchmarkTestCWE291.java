@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/auth-00/BenchmarkTestCWE291")
+@WebServlet(value = "/cwe-291/BenchmarkTestCWE291")
 public class BenchmarkTestCWE291 extends HttpServlet {
 
     private static final long serialVersionUID = 1L;

@@ -11,7 +11,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.xml.sax.InputSource;
 
-@WebServlet(value = "/inputval-00/BenchmarkTestCWE1286")
+@WebServlet(value = "/cwe-1286/BenchmarkTestCWE1286")
 public class BenchmarkTestCWE1286 extends HttpServlet {
     private static final long serialVersionUID = 1L;
 

@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/inputval-00/BenchmarkTestCWE1287")
+@WebServlet(value = "/cwe-1287/BenchmarkTestCWE1287")
 public class BenchmarkTestCWE1287 extends HttpServlet {
 
     @Override
