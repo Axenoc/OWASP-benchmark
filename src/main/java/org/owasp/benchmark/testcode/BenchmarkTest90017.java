@@ -7,30 +7,39 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(value = "/cwe-1287/BenchmarkTestCWE1287")
-public class BenchmarkTestCWE1287 extends HttpServlet {
+@WebServlet(value = "/type-00/BenchmarkTest90017")
+public class BenchmarkTest90017 extends HttpServlet {
+
+    private static final long serialVersionUID = 1L;
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         doPost(request, response);
     }
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         response.setContentType("text/html;charset=UTF-8");
-        String input = request.getParameter("BenchmarkTestCWE1287");
 
-        try {
-            int length = input.length();
-            StringBuilder output = new StringBuilder();
-            output.append("<h3> Length is: ").append(length).append("</h3>");
-            response.getWriter().println(output.toString());
+        String userId = request.getParameter("BenchmarkTest90017");
 
-        } catch (NullPointerException e) {
-            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            response.getWriter().println("<p> Error: " + e.toString() + "</p>");
-        }
+        /*
+         * Expected input type:
+         *
+         * positive integer user ID
+         *
+         * CWE-1287:
+         * No validation that input is actually numeric.
+         */
+
+        String query = "SELECT * FROM users WHERE id = " + userId;
+
+        response.getWriter().println("User ID accepted: " + userId + "<br>");
+
+        response.getWriter().println("Query: " + query);
     }
 }

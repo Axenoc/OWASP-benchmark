@@ -7,37 +7,61 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(value = "/cwe-306/BenchmarkTestCWE306")
-public class BenchmarkTestCWE306 extends HttpServlet {
+@WebServlet(value = "/type-00/BenchmarkTest90019")
+public class BenchmarkTest90019 extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         doPost(request, response);
     }
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         response.setContentType("text/html;charset=UTF-8");
 
-        String amountStr = request.getParameter("BenchmarkTestCWE306");
-        try {
-            double amount = Double.parseDouble(amountStr);
-            String transactionResult = withdrawFunds("ACC-99201", amount);
+        String param = request.getParameter("BenchmarkTest90019");
 
-            response.setStatus(HttpServletResponse.SC_OK);
-            response.getWriter().println("<h3>Transaction Complete</h3>");
-            response.getWriter().println("<p>" + transactionResult + "</p>");
-        } catch (NumberFormatException e) {
+        /*
+         * Strict type validation.
+         *
+         * Expected type:
+         * integer represented entirely by digits.
+         */
+
+        if (param == null || !param.matches("[0-9]+")) {
+
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
-            response.getWriter().println("<p>Invalid withdrawal amount provided.</p>");
-        }
-    }
 
-    private String withdrawFunds(String accountId, double amount) {
-        return "Successfully withdrew $" + amount + " from account " + accountId;
+            response.getWriter().println("User ID must be numeric");
+
+            return;
+        }
+
+        int userId;
+
+        try {
+
+            userId = Integer.parseInt(param);
+
+        } catch (NumberFormatException e) {
+
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+
+            response.getWriter().println("User ID is outside integer range");
+
+            return;
+        }
+
+        /*
+         * Only correctly typed input reaches here.
+         */
+
+        response.getWriter().println("User ID accepted: " + userId);
     }
 }

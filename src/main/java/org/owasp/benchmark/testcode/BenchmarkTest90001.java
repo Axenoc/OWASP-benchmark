@@ -7,29 +7,41 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(value = "/cwe-425/BenchmarkTestCWE425")
-public class BenchmarkTestCWE425 extends HttpServlet {
+@WebServlet(value = "/quantity-00/BenchmarkTest90001")
+public class BenchmarkTest90001 extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         doPost(request, response);
     }
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         response.setContentType("text/html;charset=UTF-8");
-        String statusMessage = executePrivilegedSystemReset();
 
-        response.setStatus(HttpServletResponse.SC_OK);
-        response.getWriter().println("<h1>Admin Dashboard</h1>");
-        response.getWriter().println("<p>Status: " + statusMessage + "</p>");
-    }
+        String param = request.getParameter("BenchmarkTest90001");
 
-    private String executePrivilegedSystemReset() {
-        return "SUCCESS: System configuration reset to default values.";
+        int quantity;
+
+        try {
+            quantity = Integer.parseInt(param);
+        } catch (NumberFormatException e) {
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            response.getWriter().println("Invalid quantity");
+            return;
+        }
+        int unitPrice = 20;
+
+        int total = unitPrice * quantity;
+
+        response.getWriter().println("Quantity accepted: " + quantity + "<br>");
+
+        response.getWriter().println("Total charge: " + total);
     }
 }

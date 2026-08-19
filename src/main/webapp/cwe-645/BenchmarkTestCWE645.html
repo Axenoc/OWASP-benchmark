@@ -9,14 +9,15 @@
 <title>BenchmarkTestCWE645</title>
 </head>
 <body>
-    <form action="/benchmark/cwe-645/BenchmarkTestCWE645" method="POST" id="FormBenchmarkTestCWE645" autocomplete="off">
+    <form action="/benchmark/cwe-645/BenchmarkTest90023" method="POST" id="FormBenchmarkTestCWE645" autocomplete="off">
         <div>
-            <label>Parameter: BenchmarkTestCWE645 <br>Value:
-            </label> <input type="text" id="BenchmarkTestCWE645" name="BenchmarkTestCWE645" value="benchmark-user,SafeText">
+            <label>Credentials (username,password):
+            </label> <input type="text" id="BenchmarkTestCWE645" name="BenchmarkTestCWE645" value="victim@example.com,WrongPassword">
         </div>
         <br>
+        <p>Submit the wrong password three times to lock the victim account globally.</p>
         <div>
-            <input type="submit" value="Submit">
+            <input type="submit" value="Login">
         </div>
     </form>
 </body>
