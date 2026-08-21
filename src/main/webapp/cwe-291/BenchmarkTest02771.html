@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<script src="/benchmark/js/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="/benchmark/js/js.cookie.js"></script>
+<script src="/benchmark/js/testsuiteutils.js" type="text/javascript"></script>
+<link rel="icon" type="image/png" href="/benchmark/favicon.ico">
+<title>BenchmarkTest02771</title>
+</head>
+<body>
+    <form action="/benchmark/cwe-291/BenchmarkTest02771" method="POST" id="FormBenchmarkTest02771" autocomplete="off">
+        <div>
+            <h2>CWE-291 Test Case 02771 (True - Complex, CVE-2025-34026)</h2>
+            <label>Admin Session Token: </label><input type="text" id="sessionToken" name="sessionToken" value="EXPIRED_TOKEN">
+        </div>
+        <br>
+        <div>
+            <input type="button" id="login-btn" value="Authenticate Session">
+        </div>
+    </form>
+
+    <script>
+    $("#login-btn").on("click", function() {
+        $.ajax({
+            url: $("#FormBenchmarkTest02771").attr("action"),
+            type: "POST",
+            headers: {
+                "Connection": "X-Real-Ip",
+                "X-Real-IP": "192.168.1.100"
+            },
+            data: $("#FormBenchmarkTest02771").serialize(),
+            success: function(data) {
+                document.open(); document.write(data); document.close();
+            }
+        });
+    });
+    </script>
+</body>
+</html>

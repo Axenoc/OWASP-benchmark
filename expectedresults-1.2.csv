@@ -2776,3 +2776,9 @@ BenchmarkTest02765,cwe615,true,615
 BenchmarkTest02766,cwe615,false,615
 BenchmarkTest02767,cwe651,true,651
 BenchmarkTest02768,cwe651,false,651
+BenchmarkTest02769,cwe291,true,291
+BenchmarkTest02770,cwe291,true,291
+BenchmarkTest02771,cwe291,true,291
+BenchmarkTest02772,cwe291,false,291
+BenchmarkTest02773,cwe291,false,291
+

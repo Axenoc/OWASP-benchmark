@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<script src="/benchmark/js/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="/benchmark/js/js.cookie.js"></script>
+<script src="/benchmark/js/testsuiteutils.js" type="text/javascript"></script>
+<link rel="icon" type="image/png" href="/benchmark/favicon.ico">
+<title>BenchmarkTest02770</title>
+</head>
+<body>
+    <form action="/benchmark/cwe-291/BenchmarkTest02770" method="POST" id="FormBenchmarkTest02770" autocomplete="off">
+        <div>
+            <h2>CWE-291 Test Case 02770 (True - Medium, CVE-2022-40684)</h2>
+            <label>Username: </label><input type="text" id="BenchmarkTest02770_user" name="BenchmarkTest02770_user" value="guest"><br>
+            <label>Password: </label><input type="password" id="BenchmarkTest02770_pass" name="BenchmarkTest02770_pass" value="guest123">
+        </div>
+        <br>
+        <div>
+            <input type="button" id="login-btn" value="Login">
+        </div>
+    </form>
+
+    <script>
+    $("#login-btn").on("click", function() {
+        $.ajax({
+            url: $("#FormBenchmarkTest02770").attr("action"),
+            type: "POST",
+            headers: { "Forwarded": "for=192.168.1.100;by=192.168.1.1" }, // Exact RFC 7239 Forwarded header used in CVE-2022-40684
+            data: $("#FormBenchmarkTest02770").serialize(),
+            success: function(data) {
+                document.open(); document.write(data); document.close();
+            }
+        });
+    });
+    </script>
+</body>
+</html>

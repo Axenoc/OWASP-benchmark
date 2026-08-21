@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<script src="/benchmark/js/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="/benchmark/js/js.cookie.js"></script>
+<script src="/benchmark/js/testsuiteutils.js" type="text/javascript"></script>
+<link rel="icon" type="image/png" href="/benchmark/favicon.ico">
+<title>BenchmarkTest02773</title>
+</head>
+<body>
+    <form action="/benchmark/cwe-291/BenchmarkTest02773" method="POST" id="FormBenchmarkTest02773" autocomplete="off">
+        <div>
+            <label>Username: </label><input type="text" id="BenchmarkTest02773_user" name="BenchmarkTest02773_user" value="admin"><br>
+            <label>Password: </label><input type="password" id="BenchmarkTest02773_pass" name="BenchmarkTest02773_pass" value="ComplexSecurePass2026!">
+        </div>
+        <br>
+        <div>
+            <input type="button" id="login-btn" value="Login">
+        </div>
+    </form>
+
+    <script>
+    $("#login-btn").on("click", function() {
+        $.ajax({
+            url: $("#FormBenchmarkTest02773").attr("action"),
+            type: "POST",
+            headers: {
+                "X-Forwarded-For": "192.168.1.100",
+                "X-Client-Host": "user.domain.com"
+            },
+            data: $("#FormBenchmarkTest02773").serialize(),
+            success: function(data) {
+                document.open(); document.write(data); document.close();
+            }
+        });
+    });
+    </script>
+</body>
+</html>
