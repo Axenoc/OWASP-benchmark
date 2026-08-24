@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<script src="/benchmark/js/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="/benchmark/js/js.cookie.js"></script>
+<script src="/benchmark/js/testsuiteutils.js" type="text/javascript"></script>
+<link rel="icon" type="image/png" href="/benchmark/favicon.ico">
+<title>BenchmarkTestCWE293_03</title>
+</head>
+<body>
+    <form action="/benchmark/cwe-293/BenchmarkTestCWE293_03" method="POST"
+            id="FormBenchmarkTestCWE293_03" autocomplete="off">
+        <p>The controller applies a strict regex but still authenticates using Referer alone.</p>
+        <div><input type="button" id="request-btn" value="Open Diagnostics"></div>
+    </form>
+    <pre id="result"></pre>
+
+    <script>
+    $("#request-btn").on("click", function() {
+        $.ajax({
+            url: $("#FormBenchmarkTestCWE293_03").attr("action"),
+            type: "POST",
+            complete: function(xhr) {
+                $("#result").text("HTTP " + xhr.status + "\n" + xhr.responseText);
+            }
+        });
+    });
+    </script>
+</body>
+</html>

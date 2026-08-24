@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<script src="/benchmark/js/jquery.min.js" type="text/javascript"></script>
+<script src="/benchmark/js/testsuiteutils.js" type="text/javascript"></script>
+<link rel="icon" type="image/png" href="/benchmark/favicon.ico">
+<title>BenchmarkTestCWE620_05</title>
+</head>
+<body>
+<h2>One-Time MFA Password Change</h2>
+<form action="/benchmark/cwe-620/BenchmarkTestCWE620_05" method="POST" id="FormBenchmarkTestCWE620_05">
+    <label>MFA code: <input type="text" id="mfa-code" value="135790" maxlength="6"></label>
+    <input type="button" id="verify-btn" value="Verify MFA"><br>
+    <label>New password: <input type="password" id="new-password" value="NewVerifiedPassword2!"></label>
+    <input type="button" id="change-btn" value="Change password">
+</form>
+<pre id="result"></pre>
+<script>
+var endpoint = $("#FormBenchmarkTestCWE620_05").attr("action");
+$("#verify-btn").on("click", function() {
+    $.ajax({url: endpoint, type: "POST", data: {operation: "verifyMfa", mfaCode: $("#mfa-code").val()},
+        complete: showResult});
+});
+$("#change-btn").on("click", function() {
+    $.ajax({url: endpoint, type: "POST", data: {operation: "changePassword",
+        newPassword: $("#new-password").val(), mfaVerified: "true"}, complete: showResult});
+});
+function showResult(xhr) { $("#result").text("HTTP " + xhr.status + "\n" + xhr.responseText); }
+</script>
+</body>
+</html>

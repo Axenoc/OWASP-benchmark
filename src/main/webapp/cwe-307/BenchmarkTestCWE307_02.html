@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<script src="/benchmark/js/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="/benchmark/js/js.cookie.js"></script>
+<script src="/benchmark/js/testsuiteutils.js" type="text/javascript"></script>
+<link rel="icon" type="image/png" href="/benchmark/favicon.ico">
+<title>BenchmarkTestCWE307_02</title>
+</head>
+<body>
+    <form action="/benchmark/cwe-307/BenchmarkTestCWE307_02" method="POST"
+            id="FormBenchmarkTestCWE307_02" autocomplete="off">
+        <div>
+            <label>Username: </label><input type="text" id="username" value="admin"><br>
+            <label>Password: </label><input type="password" id="password" value="WrongPassword">
+        </div>
+        <p>Authentication uses one combined credential cookie with no attempt limit.</p>
+        <div><input type="button" id="login-btn" value="Login"></div>
+    </form>
+    <pre id="result"></pre>
+
+    <script>
+    $("#login-btn").on("click", function() {
+        Cookies.set("CWE307-Credentials", $("#username").val() + ":" + $("#password").val(),
+                {path: "/benchmark/cwe-307"});
+        $.ajax({
+            url: $("#FormBenchmarkTestCWE307_02").attr("action"),
+            type: "POST",
+            complete: function(xhr) {
+                Cookies.remove("CWE307-Credentials", {path: "/benchmark/cwe-307"});
+                $("#result").text("HTTP " + xhr.status + "\n" + xhr.responseText);
+            }
+        });
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<script src="/benchmark/js/jquery.min.js" type="text/javascript"></script>
+<script src="/benchmark/js/testsuiteutils.js" type="text/javascript"></script>
+<link rel="icon" type="image/png" href="/benchmark/favicon.ico">
+<title>BenchmarkTestCWE603_05</title>
+</head>
+<body>
+<h2>Session-Protected Login</h2>
+<form action="/benchmark/cwe-603/BenchmarkTestCWE603_05" method="POST" id="FormBenchmarkTestCWE603_05">
+    <label>Username: <input type="text" id="username" value="admin"></label><br>
+    <label>Password: <input type="password" id="password" value="SessionPassword123!"></label>
+    <input type="button" id="login-btn" value="Login">
+    <input type="button" id="dashboard-btn" value="Open dashboard">
+</form>
+<pre id="result"></pre>
+<script>
+var endpoint = $("#FormBenchmarkTestCWE603_05").attr("action");
+$("#login-btn").on("click", function() {
+    $.ajax({url: endpoint, type: "POST", data: {operation: "login", username: $("#username").val(),
+        password: $("#password").val()}, complete: showResult});
+});
+$("#dashboard-btn").on("click", function() {
+    $.ajax({url: endpoint, type: "POST", data: {operation: "dashboard"},
+        headers: {"X-Client-Authenticated": "yes"}, complete: showResult});
+});
+function showResult(xhr) { $("#result").text("HTTP " + xhr.status + "\n" + xhr.responseText); }
+</script>
+</body>
+</html>

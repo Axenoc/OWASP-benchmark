@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<script src="/benchmark/js/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="/benchmark/js/js.cookie.js"></script>
+<script src="/benchmark/js/testsuiteutils.js" type="text/javascript"></script>
+<link rel="icon" type="image/png" href="/benchmark/favicon.ico">
+<title>BenchmarkTestCWE425_02</title>
+</head>
+<body>
+    <form action="/benchmark/cwe-425/BenchmarkTestCWE425_02" method="POST"
+            id="FormBenchmarkTestCWE425_02" autocomplete="off">
+        <div>
+            <label>Username: </label>
+            <input type="text" id="BenchmarkTestCWE425_02_user"
+                    name="BenchmarkTestCWE425_02_user" value="guest"><br>
+            <label>Password: </label>
+            <input type="password" id="BenchmarkTestCWE425_02_pass"
+                    name="BenchmarkTestCWE425_02_pass" value="guest123">
+        </div>
+        <br>
+        <div><input type="button" id="login-btn" value="Login"></div>
+    </form>
+
+    <script>
+    $("#login-btn").on("click", function() {
+        $.ajax({
+            url: $("#FormBenchmarkTestCWE425_02").attr("action"),
+            type: "POST",
+            data: $("#FormBenchmarkTestCWE425_02").serialize(),
+            complete: function(xhr) {
+                document.open(); document.write(xhr.responseText); document.close();
+            }
+        });
+    });
+    </script>
+</body>
+</html>

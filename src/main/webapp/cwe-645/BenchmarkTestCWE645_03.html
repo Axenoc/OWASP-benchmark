@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<script src="/benchmark/js/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="/benchmark/js/js.cookie.js"></script>
+<script src="/benchmark/js/testsuiteutils.js" type="text/javascript"></script>
+<link rel="icon" type="image/png" href="/benchmark/favicon.ico">
+<title>BenchmarkTestCWE645_03</title>
+</head>
+<body>
+    <form action="/benchmark/cwe-645/BenchmarkTestCWE645_03" method="POST"
+            id="FormBenchmarkTestCWE645_03" autocomplete="off">
+        <div>
+            <label>Username: </label>
+            <input type="text" id="BenchmarkTestCWE645_03_user" value="victim@example.com"><br>
+            <label>Password: </label>
+            <input type="password" id="BenchmarkTestCWE645_03_pass" value="WrongPassword">
+        </div>
+        <p>Submit three bad passwords in cookies to lock the victim account globally.</p>
+        <div><input type="button" id="login-btn" value="Login"></div>
+    </form>
+    <pre id="result"></pre>
+
+    <script>
+    $("#login-btn").on("click", function() {
+        Cookies.set("CWE645-Username", $("#BenchmarkTestCWE645_03_user").val(),
+                {path: "/benchmark/cwe-645"});
+        Cookies.set("CWE645-Password", $("#BenchmarkTestCWE645_03_pass").val(),
+                {path: "/benchmark/cwe-645"});
+        $.ajax({
+            url: $("#FormBenchmarkTestCWE645_03").attr("action"),
+            type: "POST",
+            complete: function(xhr) {
+                Cookies.remove("CWE645-Username", {path: "/benchmark/cwe-645"});
+                Cookies.remove("CWE645-Password", {path: "/benchmark/cwe-645"});
+                $("#result").text("HTTP " + xhr.status + "\n" + xhr.responseText);
+            }
+        });
+    });
+    </script>
+</body>
+</html>

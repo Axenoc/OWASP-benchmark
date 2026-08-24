@@ -16,9 +16,13 @@
 | CWE-651 | [cwe651.html](https://localhost:8443/benchmark/cwe651.html) | BenchmarkTest02767 | BenchmarkTest02768 |
 | CWE-41 | [cwe41.html](https://localhost:8443/benchmark/cwe41.html) | BenchmarkTestCWE41 | — |
 | CWE-291 | [cwe291.html](https://localhost:8443/benchmark/cwe291.html) | BenchmarkTestCWE291 | — |
-| CWE-306 | [cwe306.html](https://localhost:8443/benchmark/cwe306.html) | BenchmarkTestCWE306 | — |
-| CWE-425 | [cwe425.html](https://localhost:8443/benchmark/cwe425.html) | BenchmarkTestCWE425 | — |
-| CWE-645 | [cwe645.html](https://localhost:8443/benchmark/cwe645.html) | BenchmarkTestCWE645 | — |
+| CWE-293 | [cwe293.html](https://localhost:8443/benchmark/cwe293.html) | BenchmarkTestCWE293_01, _02, _03 | BenchmarkTestCWE293_04, _05 |
+| CWE-306 | [cwe306.html](https://localhost:8443/benchmark/cwe306.html) | BenchmarkTestCWE306_01, _02, _03 | BenchmarkTestCWE306_04, _05 |
+| CWE-307 | [cwe307.html](https://localhost:8443/benchmark/cwe307.html) | BenchmarkTestCWE307_01, _02, _03 | BenchmarkTestCWE307_04, _05 |
+| CWE-425 | [cwe425.html](https://localhost:8443/benchmark/cwe425.html) | BenchmarkTestCWE425_01, _02, _03 | BenchmarkTestCWE425_04, _05 |
+| CWE-603 | [cwe603.html](https://localhost:8443/benchmark/cwe603.html) | BenchmarkTestCWE603_01, _02, _03 | BenchmarkTestCWE603_04, _05 |
+| CWE-620 | [cwe620.html](https://localhost:8443/benchmark/cwe620.html) | BenchmarkTestCWE620_01, _02, _03 | BenchmarkTestCWE620_04, _05 |
+| CWE-645 | [cwe645.html](https://localhost:8443/benchmark/cwe645.html) | BenchmarkTestCWE645_01, _02, _03 | BenchmarkTestCWE645_04, _05 |
 | CWE-1284 | [cwe1284.html](https://localhost:8443/benchmark/cwe1284.html) | BenchmarkTestCWE1284 | — |
 | CWE-1285 | [cwe1285.html](https://localhost:8443/benchmark/cwe1285.html) | BenchmarkTestCWE1285 | — |
 | CWE-1286 | [cwe1286.html](https://localhost:8443/benchmark/cwe1286.html) | BenchmarkTestCWE1286 | — |

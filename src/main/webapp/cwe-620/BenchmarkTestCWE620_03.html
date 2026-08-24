@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<script src="/benchmark/js/jquery.min.js" type="text/javascript"></script>
+<script src="/benchmark/js/js.cookie.js" type="text/javascript"></script>
+<script src="/benchmark/js/testsuiteutils.js" type="text/javascript"></script>
+<link rel="icon" type="image/png" href="/benchmark/favicon.ico">
+<title>BenchmarkTestCWE620_03</title>
+</head>
+<body>
+<h2>Change Password</h2>
+<form action="/benchmark/cwe-620/BenchmarkTestCWE620_03" method="POST" id="FormBenchmarkTestCWE620_03">
+    <label>Account: <input type="email" name="account" value="victim@example.com"></label><br>
+    <label>New password: <input type="password" name="newPassword" value="AttackerChosen123!"></label>
+    <input type="hidden" id="mfa-cookie-state" value="pending">
+    <p>The frontend stores MFA status in a browser cookie.</p>
+    <input type="button" id="change-btn" value="Change password">
+</form>
+<pre id="result"></pre>
+<script>
+$("#change-btn").on("click", function() {
+    Cookies.set("CWE620-MFA", $("#mfa-cookie-state").val(), {path: "/benchmark/cwe-620"});
+    $.ajax({url: $("#FormBenchmarkTestCWE620_03").attr("action"), type: "POST",
+        data: $("#FormBenchmarkTestCWE620_03").serialize(), complete: function(xhr) {
+            Cookies.remove("CWE620-MFA", {path: "/benchmark/cwe-620"});
+            $("#result").text("HTTP " + xhr.status + "\n" + xhr.responseText);
+        }});
+});
+</script>
+</body>
+</html>

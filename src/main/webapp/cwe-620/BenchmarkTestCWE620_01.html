@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<script src="/benchmark/js/jquery.min.js" type="text/javascript"></script>
+<script src="/benchmark/js/testsuiteutils.js" type="text/javascript"></script>
+<link rel="icon" type="image/png" href="/benchmark/favicon.ico">
+<title>BenchmarkTestCWE620_01</title>
+</head>
+<body>
+<h2>Change Password</h2>
+<form action="/benchmark/cwe-620/BenchmarkTestCWE620_01" method="POST" id="FormBenchmarkTestCWE620_01">
+    <label>Account: <input type="email" name="account" value="victim@example.com"></label><br>
+    <label>New password: <input type="password" name="newPassword" value="AttackerChosen123!"></label>
+    <input type="hidden" name="mfaVerified" value="false">
+    <p>The client normally changes the hidden MFA flag only after verification.</p>
+    <input type="button" id="change-btn" value="Change password">
+</form>
+<pre id="result"></pre>
+<script>
+$("#change-btn").on("click", function() {
+    $.ajax({url: $("#FormBenchmarkTestCWE620_01").attr("action"), type: "POST",
+        data: $("#FormBenchmarkTestCWE620_01").serialize(), complete: showResult});
+});
+function showResult(xhr) { $("#result").text("HTTP " + xhr.status + "\n" + xhr.responseText); }
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<script src="/benchmark/js/jquery.min.js" type="text/javascript"></script>
+<script src="/benchmark/js/testsuiteutils.js" type="text/javascript"></script>
+<link rel="icon" type="image/png" href="/benchmark/favicon.ico">
+<title>BenchmarkTestCWE603_04</title>
+</head>
+<body>
+<h2>Server-Validated Login</h2>
+<form action="/benchmark/cwe-603/BenchmarkTestCWE603_04" method="POST" id="FormBenchmarkTestCWE603_04">
+    <label>Username: <input type="text" name="username" value="admin"></label><br>
+    <label>Password: <input type="password" name="password" value="ServerPassword123!"></label>
+    <input type="hidden" name="clientAuthenticated" value="true">
+    <input type="button" id="login-btn" value="Login">
+</form>
+<pre id="result"></pre>
+<script>
+$("#login-btn").on("click", function() {
+    $.ajax({url: $("#FormBenchmarkTestCWE603_04").attr("action"), type: "POST",
+        data: $("#FormBenchmarkTestCWE603_04").serialize(), complete: showResult});
+});
+function showResult(xhr) { $("#result").text("HTTP " + xhr.status + "\n" + xhr.responseText); }
+</script>
+</body>
+</html>

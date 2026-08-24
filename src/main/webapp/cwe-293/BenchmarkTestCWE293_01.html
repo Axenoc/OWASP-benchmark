@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<script src="/benchmark/js/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="/benchmark/js/js.cookie.js"></script>
+<script src="/benchmark/js/testsuiteutils.js" type="text/javascript"></script>
+<link rel="icon" type="image/png" href="/benchmark/favicon.ico">
+<title>BenchmarkTestCWE293_01</title>
+</head>
+<body>
+    <form action="/benchmark/cwe-293/BenchmarkTestCWE293_01" method="POST"
+            id="FormBenchmarkTestCWE293_01" autocomplete="off">
+        <p>The controller authenticates this request using only the browser-supplied Referer.</p>
+        <div><input type="button" id="request-btn" value="Open Administrator Session"></div>
+    </form>
+    <pre id="result"></pre>
+
+    <script>
+    $("#request-btn").on("click", function() {
+        $.ajax({
+            url: $("#FormBenchmarkTestCWE293_01").attr("action"),
+            type: "POST",
+            complete: function(xhr) {
+                $("#result").text("HTTP " + xhr.status + "\n" + xhr.responseText);
+            }
+        });
+    });
+    </script>
+</body>
+</html>

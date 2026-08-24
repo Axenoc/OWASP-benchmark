@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="styles.css" type="text/css">
+<link rel="icon" type="image/png" href="favicon.ico">
+<title>CWE-603 Test Cases</title>
+</head>
+<body>
+<h1>CWE-603: Use of Client-Side Authentication</h1>
+<h2>True positives</h2>
+<ul>
+    <li><a href="cwe-603/BenchmarkTestCWE603_01.html">BenchmarkTestCWE603_01</a> - client authentication parameter</li>
+    <li><a href="cwe-603/BenchmarkTestCWE603_02.html">BenchmarkTestCWE603_02</a> - client authentication header</li>
+    <li><a href="cwe-603/BenchmarkTestCWE603_03.html">BenchmarkTestCWE603_03</a> - client authentication cookie</li>
+</ul>
+<h2>False positives</h2>
+<ul>
+    <li><a href="cwe-603/BenchmarkTestCWE603_04.html">BenchmarkTestCWE603_04</a> - server-side credential validation</li>
+    <li><a href="cwe-603/BenchmarkTestCWE603_05.html">BenchmarkTestCWE603_05</a> - server-side session authentication</li>
+</ul>
+</body>
+</html>
