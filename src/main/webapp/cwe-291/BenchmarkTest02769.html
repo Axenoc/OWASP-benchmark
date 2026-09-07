@@ -19,19 +19,5 @@
             <input type="button" id="login-btn" value="Login">
         </div>
     </form>
-
-    <script>
-    $("#login-btn").on("click", function() {
-        $.ajax({
-            url: $("#FormBenchmarkTest02769").attr("action"),
-            type: "POST",
-            headers: { "X-Forwarded-For": "192.168.1.100" },
-            data: $("#FormBenchmarkTest02769").serialize(),
-            success: function(data) {
-                document.open(); document.write(data); document.close();
-            }
-        });
-    });
-    </script>
 </body>
 </html>
